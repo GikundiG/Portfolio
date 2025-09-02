@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Patrick Gikundi — Architect–Developer & Project Manager</title>
+    <style>
+        :root {
+            --deep-blue: #0f3a66;
+            --muted: #6b7280;
+            --light: #f3f4f6;
+            --card: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            background: #f9fafb;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .canvas {
+            width: 210mm;
+            height: 297mm;
+            /* A4 */
+            background: var(--card);
+            box-shadow: 0 8px 40px rgba(15, 58, 102, 0.12);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            color: #0b1220;
+            line-height: 1.5;
+            font-size: 14px;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .brand-bar {
+            height: 6px;
+            background: var(--deep-blue);
+        }
+
+        header {
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(180deg, #0f3a66, #0b2f55);
+            padding: 22px 20px 12px;
+        }
+
+        .name {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: .6px;
+        }
+
+        .role {
+            font-size: 14px;
+            opacity: .95;
+            margin-top: 4px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            font-style: italic;
+            opacity: .9;
+            margin-top: 8px;
+        }
+
+        /* About */
+        .about {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: var(--light);
+        }
+
+        .about h3 {
+            font-size: 16px;
+            color: var(--deep-blue);
+            margin-bottom: 8px;
+        }
+
+        .about p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .portrait {
+            width: 140px;
+            height: 140px;
+            flex-shrink: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        .portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Cards */
+        .two-col {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+        }
+
+        .card {
+            flex: 1;
+            background: #fff;
+            border: 1px solid #eef2f7;
+            border-radius: 10px;
+            padding: 12px;
+            box-shadow: 0 4px 16px rgba(12, 38, 75, 0.03);
+        }
+
+        .card h4 {
+            font-size: 14px;
+            color: var(--deep-blue);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .card ul {
+            font-size: 13px;
+            color: var(--muted);
+            padding-left: 18px;
+        }
+
+        /* Services */
+        .services {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            flex: 1;
+        }
+
+        .svc {
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+            border: 1px solid #eef2f7;
+            border-radius: 10px;
+            padding: 10px;
+            background: linear-gradient(180deg, #fff, #fbfdff);
+        }
+
+        /* Make service cards behave as links when wrapped in <a> */
+        .services a.svc {
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+            border: 1px solid #eef2f7;
+            border-radius: 10px;
+            padding: 10px;
+            background: linear-gradient(180deg, #fff, #fbfdff);
+            text-decoration: none;
+            display: block;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .services a.svc strong { display:block; color:#0b1220; margin-bottom:2px; }
+        .services a.svc:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(15,58,102,.12); }
+
+        .svc .icon, .services a.svc .icon {
+            font-size: 18px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .svc strong {
+            display: block;
+            color: #0b1220;
+            margin-bottom: 2px;
+        }
+
+        /* Footer CTA */
+        footer {
+            background: var(--deep-blue);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+
+        footer h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 13px;
+            opacity: .95;
+        }
+
+        .icons-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .icon-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 8px;
+            border-radius: 8px;
+            font-size: 11px;
+            text-decoration: none;
+            color: #dbeafe;
+        }
+
+        .icon-chip svg {
+            width: 14px;
+            height: 14px;
+            fill: #fff;
+        }
+
+        .icon-chip span {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+
+            .canvas {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+</style>
+</head>
+
+<body>
+    <div class="canvas">
+        <div class="brand-bar"></div>
+
+        <header>
+            <div class="name">PATRICK GIKUNDI</div>
+            <div class="role">Architect, Project Manager & Builder</div>
+            <div class="tagline">Designing and delivering spaces with impact — from vision to reality.</div>
+        </header>
+
+        <main>
+            <!-- About -->
+            <section class="about">
+                <div>
+                    <h3>About Me</h3>
+                    <p>I am a Registered Architect (BORAQS A1953) and a member of AAK (No. 4378). I lead the design, management, and delivery of residential, commercial, healthcare, cold-storage and logistics, educational, and data centre projects. I provide complete solutions from design and approvals through to construction and handover, ensuring innovation, compliance, and financial sustainability.</p>
+                </div>
+                <div class="portrait">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQGVUlzz4cT6Pg/profile-displayphoto-shrink_800_800/B4DZW6ozicHkAg-/0/1742593015378?e=1759363200&v=beta&t=nZLlrVc6ki91NbBnZjkxwd3L7AdyvgfFWEnxTQTGic8" alt="Patrick Gikundi portrait" onerror="this.style.opacity=.12; this.alt='Portrait not provided'">
+                </div>
+            </section>
+
+            <!-- Approach -->
+            <section class="two-col">
+                <div class="card">
+                    <h4>My Approach to Design & Build</h4>
+                    <ul>
+                        <li>1️⃣ Visioning & Feasibility (aligning design + budget)</li>
+                        <li>2️⃣ Design & Approvals (plans, permits, compliance)</li>
+                        <li>3️⃣ Build Management (site supervision, contractor coordination, cost control)</li>
+                        <li>4️⃣ Completion & Handover (quality assurance, client satisfaction)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Challenges & Solutions -->
+            <section class="two-col">
+                <div class="card">
+                    <h4>Client Challenges</h4>
+                    <ul>
+                        <li>Complex building codes, permits and approvals</li>
+                        <li>Projects over budget or delayed due to poor coordination</li>
+                        <li>Limited sustainability and long-term value planning</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>My Solutions</h4>
+                    <ul>
+                        <li>Regulatory expertise to fast-track approvals</li>
+                        <li>End-to-end project & financial management (KES 500M+ delivered)</li>
+                        <li>Sustainable design and energy-efficiency for long-term ROI</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Services -->
+            <section>
+                <h4 style="color:var(--deep-blue);font-size:15px;font-weight:600;padding:0 20px 8px">Core Services</h4>
+                <div class="services">
+                    <a class="svc" href="services-architecture.html"><span class="icon">🏠</span><strong>Architectural Design</strong><span>Design & Approvals</span></a>
+                    <a class="svc" href="services-design-build.html"><span class="icon">🛠️</span><strong>Design & Build</strong><span>Concept → Completion</span></a>
+                    <a class="svc" href="services-project-management.html"><span class="icon">📊</span><strong>Project Management</strong><span>Budgets & Scheduling</span></a>
+                    <a class="svc" href="services-supervision.html"><span class="icon">👷</span><strong>Supervision</strong><span>Site QA & Handover</span></a>
+                    <a class="svc" href="services-sustainability.html"><span class="icon">🌍</span><strong>Sustainability</strong><span>Energy Efficiency</span></a>
+                    <a class="svc" href="services-representation.html"><span class="icon">🤝</span><strong>Representation</strong><span>Protecting Investment</span></a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer CTA -->
+        <footer>
+            <h3>LET'S BUILD TOGETHER</h3>
+            <p>Every project is an opportunity to create value and impact. I design, manage and deliver projects that last.</p>
+            <div class="icons-row">
+                <a href="mailto:itsgikundimurithi@gmail.com" class="icon-chip" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 
+          0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                    <span>itsgikundimurithi@gmail.com</span>
+                </a>
+
+                <a href="tel:+254720895762" class="icon-chip" aria-label="Phone">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.8-.4 
+          1.2-.2 1.3.5 2.7.8 4.1.8.7 
+          0 1.3.6 1.3 1.3V21c0 .7-.6 
+          1.3-1.3 1.3C9.9 22.3 1.7 
+          14.1 1.7 4.3 1.7 3.6 2.3 
+          3 3 3h3.3c.7 0 1.3.6 1.3 
+          1.3 0 1.4.3 2.8.8 4.1.2.4.1.9-.2 
+          1.2l-1.6 1.2z" />
+                    </svg>
+                    <span>+254 720 895 762</span>
+                </a>
+
+                <a href="https://linkedin.com/in/archgikundipatrick" target="_blank" class="icon-chip" aria-label="LinkedIn Profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34">
+                        <path d="M34,20.5v13h-7v-12c0-3.3-1.2-5.5-4-5.5
+          c-2.2,0-3.5,1.5-4.1,2.9C18.7,19.2,18.7,20,
+          18.7,21v12h-7s0.1-19,0-21h7v3
+          c0.9-1.4,2.5-3.4,6.1-3.4C30.1,11.6,34,14.5,
+          34,20.5z M4,1C1.8,1,0,2.8,0,5s1.8,4,4,4
+          s4-1.8,4-4S6.2,1,4,1z M0.5,33h7V12h-7V33z" />
+                    </svg>
+                    <span>archgikundipatrick</span>
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

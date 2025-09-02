@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Design & Build — Patrick Gikundi</title>
+    <style>
+        :root {
+            --deep-blue: #0f3a66;
+            --muted: #6b7280;
+            --light: #f3f4f6;
+            --card: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            background: #f9fafb;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .canvas {
+            width: 210mm;
+            height: 297mm;
+            /* A4 */
+            background: var(--card);
+            box-shadow: 0 8px 40px rgba(15, 58, 102, 0.12);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            color: #0b1220;
+            line-height: 1.5;
+            font-size: 14px;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .brand-bar {
+            height: 6px;
+            background: var(--deep-blue);
+        }
+
+        header {
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(180deg, #0f3a66, #0b2f55);
+            padding: 22px 20px 12px;
+        }
+
+        .name {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: .6px;
+        }
+
+        .role {
+            font-size: 14px;
+            opacity: .95;
+            margin-top: 4px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            font-style: italic;
+            opacity: .9;
+            margin-top: 8px;
+        }
+
+        /* About */
+        .about {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: var(--light);
+        }
+
+        .about h3 {
+            font-size: 16px;
+            color: var(--deep-blue);
+            margin-bottom: 8px;
+        }
+
+        .about p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .portrait {
+            width: 140px;
+            height: 140px;
+            flex-shrink: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        .portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Cards */
+        .two-col {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+        }
+
+        .card {
+            flex: 1;
+            background: #fff;
+            border: 1px solid #eef2f7;
+            border-radius: 10px;
+            padding: 12px;
+            box-shadow: 0 4px 16px rgba(12, 38, 75, 0.03);
+        }
+
+        .card h4 {
+            font-size: 14px;
+            color: var(--deep-blue);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .card ul {
+            font-size: 13px;
+            color: var(--muted);
+            padding-left: 18px;
+        }
+
+        /* Services */
+        .services {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            flex: 1;
+        }
+
+        .svc {
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+            border: 1px solid #eef2f7;
+            border-radius: 10px;
+            padding: 10px;
+            background: linear-gradient(180deg, #fff, #fbfdff);
+        }
+
+        /* Make service cards behave as links when wrapped in <a> */
+        .services a.svc {
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+            border: 1px solid #eef2f7;
+            border-radius: 10px;
+            padding: 10px;
+            background: linear-gradient(180deg, #fff, #fbfdff);
+            text-decoration: none;
+            display: block;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .services a.svc strong { display:block; color:#0b1220; margin-bottom:2px; }
+        .services a.svc:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(15,58,102,.12); }
+
+        .svc .icon, .services a.svc .icon {
+            font-size: 18px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .svc strong {
+            display: block;
+            color: #0b1220;
+            margin-bottom: 2px;
+        }
+
+        /* Footer CTA */
+        footer {
+            background: var(--deep-blue);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+
+        footer h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 13px;
+            opacity: .95;
+        }
+
+        .icons-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .icon-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 8px;
+            border-radius: 8px;
+            font-size: 11px;
+            text-decoration: none;
+            color: #dbeafe;
+        }
+
+        .icon-chip svg {
+            width: 14px;
+            height: 14px;
+            fill: #fff;
+        }
+
+        .icon-chip span {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+
+            .canvas {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+</style>
+</head>
+<body>
+    <div class="canvas">
+        <div class="brand-bar"></div>
+        <header>
+            <div class="name">PATRICK GIKUNDI</div>
+            <div class="role">Design & Build</div>
+            <div class="tagline">Single point of responsibility — concept to completion.</div>
+        </header>
+        <main>
+            <section class="about">
+                <div>
+                    <h3>Design & Build Services</h3>
+                    <p></p>
+                    <ul>
+                        <li>Integrated design and construction delivery</li><li>Cost control, procurement & contractor management</li><li>Fast-tracked timelines with quality assurance</li><li>Seamless handover and post-occupancy support</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <h3>LET'S BUILD TOGETHER</h3>
+            <p>Every project is an opportunity to create value and impact. I design, manage and deliver projects that last.</p>
+            <div class="icons-row">
+                <a href="index.html" class="icon-chip">⬅ Back to Main Page</a>
+                <a href="mailto:itsgikundimurithi@gmail.com" class="icon-chip">Email</a>
+                <a href="tel:+254720895762" class="icon-chip">Call</a>
+                <a href="https://linkedin.com/in/archgikundipatrick" target="_blank" class="icon-chip">LinkedIn</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
