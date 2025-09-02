@@ -23,13 +23,13 @@
             background: #f9fafb;
             display: flex;
             justify-content: center;
-            padding: 1rem;
+            padding: 20px;
         }
 
         .canvas {
-            max-width: 900px;
-            width: 100%;
-            height: auto;
+            width: 210mm;
+            height: 297mm;
+            /* A4 */
             background: var(--card);
             box-shadow: 0 8px 40px rgba(15, 58, 102, 0.12);
             border-radius: 16px;
@@ -37,7 +37,7 @@
             flex-direction: column;
             color: #0b1220;
             line-height: 1.5;
-            font-size: 0.9rem;
+            font-size: 14px;
             overflow: hidden;
         }
 
@@ -51,45 +51,44 @@
             text-align: center;
             color: #fff;
             background: linear-gradient(180deg, #0f3a66, #0b2f55);
-            padding: 1.5rem 1rem 0.75rem;
+            padding: 22px 20px 12px;
         }
 
         .name {
-            font-size: 1.8rem;
+            font-size: 26px;
             font-weight: 800;
             letter-spacing: .6px;
         }
 
         .role {
-            font-size: 0.9rem;
+            font-size: 14px;
             opacity: .95;
-            margin-top: 0.25rem;
+            margin-top: 4px;
         }
 
         .tagline {
-            font-size: 0.8rem;
+            font-size: 13px;
             font-style: italic;
             opacity: .9;
-            margin-top: 0.5rem;
+            margin-top: 8px;
         }
 
         /* About */
         .about {
             display: flex;
-            gap: 1rem;
-            padding: 1rem;
+            gap: 16px;
+            padding: 20px;
             background: var(--light);
-            flex-wrap: wrap;
         }
 
         .about h3 {
-            font-size: 1rem;
+            font-size: 16px;
             color: var(--deep-blue);
-            margin-bottom: 0.5rem;
+            margin-bottom: 8px;
         }
 
         .about p {
-            font-size: 0.8rem;
+            font-size: 13px;
             color: var(--muted);
         }
 
@@ -111,54 +110,60 @@
         /* Cards */
         .two-col {
             display: flex;
-            gap: 1rem;
-            padding: 1rem;
-            flex-wrap: wrap;
+            gap: 16px;
+            padding: 20px;
         }
 
         .card {
             flex: 1;
-            min-width: 250px;
             background: #fff;
             border: 1px solid #eef2f7;
             border-radius: 10px;
-            padding: 0.75rem;
+            padding: 12px;
             box-shadow: 0 4px 16px rgba(12, 38, 75, 0.03);
         }
 
         .card h4 {
-            font-size: 0.9rem;
+            font-size: 14px;
             color: var(--deep-blue);
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 6px;
         }
 
         .card ul {
-            font-size: 0.8rem;
+            font-size: 13px;
             color: var(--muted);
-            padding-left: 1.2rem;
+            padding-left: 18px;
         }
 
         /* Services */
         .services {
-            padding: 1rem;
+            padding: 20px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0.75rem;
+            gap: 12px;
+            flex: 1;
         }
 
         .svc {
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 12px;
             color: var(--muted);
             border: 1px solid #eef2f7;
             border-radius: 10px;
-            padding: 0.5rem;
+            padding: 10px;
             background: linear-gradient(180deg, #fff, #fbfdff);
         }
 
         /* Make service cards behave as links when wrapped in <a> */
         .services a.svc {
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+            border: 1px solid #eef2f7;
+            border-radius: 10px;
+            padding: 10px;
+            background: linear-gradient(180deg, #fff, #fbfdff);
             text-decoration: none;
             display: block;
             transition: transform .2s ease, box-shadow .2s ease;
@@ -167,8 +172,8 @@
         .services a.svc:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(15,58,102,.12); }
 
         .svc .icon, .services a.svc .icon {
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
+            font-size: 18px;
+            margin-bottom: 6px;
             display: block;
         }
 
@@ -183,18 +188,18 @@
             background: var(--deep-blue);
             color: #fff;
             text-align: center;
-            padding: 1rem;
+            padding: 20px;
             border-top-left-radius: 16px;
             border-top-right-radius: 16px;
         }
 
         footer h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 18px;
+            margin-bottom: 8px;
         }
 
         footer p {
-            font-size: 0.8rem;
+            font-size: 13px;
             opacity: .95;
         }
 
@@ -202,18 +207,18 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
+            gap: 8px;
+            margin-top: 12px;
         }
 
         .icon-chip {
             display: inline-flex;
             align-items: center;
-            gap: 0.25rem;
+            gap: 6px;
             background: rgba(255, 255, 255, 0.1);
-            padding: 0.25rem 0.5rem;
+            padding: 6px 8px;
             border-radius: 8px;
-            font-size: 0.7rem;
+            font-size: 11px;
             text-decoration: none;
             color: #dbeafe;
         }
@@ -228,43 +233,6 @@
             text-decoration: underline;
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 768px) {
-            .two-col {
-                flex-direction: column;
-            }
-
-            .about {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .portrait {
-                width: 120px;
-                height: 120px;
-            }
-
-            .services {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .services {
-                grid-template-columns: 1fr;
-            }
-
-            .name {
-                font-size: 1.5rem;
-            }
-
-            .role, .tagline {
-                font-size: 0.75rem;
-            }
-        }
-
-        /* Print */
         @media print {
             body {
                 background: none;
@@ -274,9 +242,6 @@
             .canvas {
                 box-shadow: none;
                 border-radius: 0;
-                max-width: none;
-                width: 210mm;
-                height: 297mm;
             }
         }
 
@@ -284,7 +249,7 @@
             size: A4;
             margin: 0;
         }
-    </style>
+</style>
 </head>
 
 <body>
@@ -344,7 +309,7 @@
 
             <!-- Services -->
             <section>
-                <h4 style="color:var(--deep-blue);font-size:1rem;font-weight:600;padding:0 1rem 0.5rem">Core Services</h4>
+                <h4 style="color:var(--deep-blue);font-size:15px;font-weight:600;padding:0 20px 8px">Core Services</h4>
                 <div class="services">
                     <a class="svc" href="services-architecture.html"><span class="icon">🏠</span><strong>Architectural Design</strong><span>Design & Approvals</span></a>
                     <a class="svc" href="services-design-build.html"><span class="icon">🛠️</span><strong>Design & Build</strong><span>Concept → Completion</span></a>
